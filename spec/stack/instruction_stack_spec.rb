@@ -45,7 +45,7 @@ describe Stack::InstructionStack do
 
         expect do
           stack.address_set(71)
-        end.to raise_error(RuntimeError, Common::Error::INSTRUCTION_INSERT_FAILED)
+        end.to raise_error(RuntimeError, Common::Error::INSTRUCTION_SET_ADDRESS_FAILED)
       end
     end
   end

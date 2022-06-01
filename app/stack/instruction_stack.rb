@@ -22,7 +22,7 @@ module Stack
     end
 
     def address_set(address)
-      raise Common::Error::INSTRUCTION_INSERT_FAILED if address > 70
+      raise Common::Error::INSTRUCTION_SET_ADDRESS_FAILED if address > 70
 
       @next_addr = address
     end
