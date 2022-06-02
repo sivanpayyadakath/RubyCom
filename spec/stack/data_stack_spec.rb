@@ -55,7 +55,7 @@ describe Stack::DataStack do
 
   describe '.mult' do
     context 'successfully calls mult method' do
-      it 'Returns product of last 2 elements from stack and decrements stack_pointer by 2' do
+      it 'Returns product of last 2 elements from stack and decrements stack_pointer by 1' do
         stack = Stack::DataStack.new(30)
         stack.push(10)
         stack.push(20)
@@ -63,7 +63,7 @@ describe Stack::DataStack do
         expect do
           result = stack.mult
           expect(result).to eq(200)
-        end.to change { stack.instance_variable_get(:@stack_pointer) }.by(-2)
+        end.to change { stack.instance_variable_get(:@stack_pointer) }.by(-1)
       end
     end
 
