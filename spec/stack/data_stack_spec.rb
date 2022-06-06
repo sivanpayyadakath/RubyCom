@@ -37,7 +37,8 @@ describe Stack::DataStack do
         stack.push(2)
 
         expect do
-          stack.pop
+          result = stack.pop
+          expect(result).to eq(2)
         end.to change { stack.instance_variable_get(:@stack_pointer) }.by(-1)
       end
     end
