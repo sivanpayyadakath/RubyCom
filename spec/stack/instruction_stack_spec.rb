@@ -77,6 +77,16 @@ describe Stack::InstructionStack do
         end.to raise_error(RuntimeError, Common::Error::INSTRUCTION_GET_NEXT_FAILED)
       end
     end
+
+    context 'next_instruction fails when no instruction is found' do
+      it 'raises an error' do
+        stack = Stack::InstructionStack.new(70)
+
+        expect do
+          stack.next_instruction
+        end.to raise_error(RuntimeError, Common::Error::INSTRUCTION_GET_NEXT_FAILED)
+      end
+    end
   end
 
   describe '.call' do

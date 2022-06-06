@@ -8,6 +8,8 @@ module Stack
   class InstructionStack
     attr_reader :instruction_arr, :next_addr, :program_counter, :return_addr
 
+    # TODO: use length
+
     def initialize(addresses)
       @instruction_arr = Array.new(70 % addresses)
       @next_addr = 0
@@ -32,9 +34,14 @@ module Stack
 
     # Returns next instruction to be executed
     def next_instruction
+      # Reached end of instruction stack
       raise Common::Error::INSTRUCTION_GET_NEXT_FAILED if @program_counter > 70
 
       ins = @instruction_arr[@program_counter]
+
+      # Encountering an empty address
+      raise Common::Error::INSTRUCTION_GET_NEXT_FAILED if ins.nil?
+
       @program_counter += 1
       ins
     end
@@ -53,6 +60,14 @@ module Stack
 
       @program_counter = @return_addr
       @return_addr = nil
+    end
+
+    def print_stack
+      puts '___________________'
+      @instruction_arr.each_with_index do |i, n|
+        puts "#{n} |#{"#{i&.mnemonic} #{i&.operand}".ljust(15, ' ')}|"
+        puts '___________________'
+      end
     end
   end
 end

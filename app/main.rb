@@ -7,10 +7,17 @@ require 'common/error'
 class App
   # start function
   def start
+    computer = Computer.new(100)
+
+    load_instructions(computer)
+
+    computer.execute
+  end
+
+  # Load some predefined instructions
+  def load_instructions(computer)
     print_tenten_begin = 50
     main_begin = 0
-
-    computer = Computer.new(100)
 
     computer.address_set(print_tenten_begin)
 
@@ -20,11 +27,9 @@ class App
 
     computer.insert('PUSH', 6)
 
-    computer.address_set(main_begin).insert('PUSH', 101).insert('PUSH', 10).insert('CALL', print_tenten_begin)
+    computer.insert('PUSH', 101).insert('PUSH', 10).insert('CALL', print_tenten_begin)
 
     computer.insert('STOP')
-
-    # computer.execute()
   end
 end
 
