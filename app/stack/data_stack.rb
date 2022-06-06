@@ -17,7 +17,7 @@ module Stack
     def push(item)
       raise Common::Error::DATA_PUSH_FAILED if @stack_pointer > 30
 
-      @data_arr << Entity::Data.new(item)
+      @data_arr.push Entity::Data.new(item)
       @stack_pointer += 1
     end
 
@@ -25,21 +25,30 @@ module Stack
     def pop
       raise Common::Error::DATA_POP_FAILED if @stack_pointer.zero?
 
-      @data_arr.pop
+      data = @data_arr.pop
+
       @stack_pointer -= 1
+      data.item
     end
 
     # Pops 2 items and pushes their product to data_stack
     def mult
       raise Common::Error::DATA_MULT_FAILED if @stack_pointer < 2
 
-      item1 = @data_arr.pop
-      item2 = @data_arr.pop
+      item1 = pop
+      item2 = pop
 
-      product = item1.item * item2.item
-      @data_arr.push(product)
-      @stack_pointer -= 1
+      product = item1 * item2
+      push(product)
       product
+    end
+
+    def print_stack
+      puts '___________________'
+      @data_arr.each_with_index do |i, n|
+        puts "#{n} |#{"#{i&.item} ".ljust(15, ' ')}|"
+        puts '___________________'
+      end
     end
   end
 end
