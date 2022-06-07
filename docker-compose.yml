@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  rubycom:
+    container_name: rubycom
+    build: .
+    working_dir: /rubycom
+    command: ruby app/main.rb
+    volumes:
+      - ./app:/rubycom/app
+      - ./spec:/rubycom/spec
