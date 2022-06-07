@@ -4,9 +4,11 @@ require 'stack/instruction_stack'
 require 'stack/data_stack'
 require 'common/error'
 
+# Computer simulator class
 class Computer
   attr_reader :instruction_stack, :data_stack
 
+  # Initialize the class
   def initialize(addresses)
     @instruction_stack = Stack::InstructionStack.new(70 % addresses)
     @data_stack = Stack::DataStack.new(30 % addresses)

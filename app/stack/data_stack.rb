@@ -8,8 +8,9 @@ module Stack
   class DataStack
     attr_reader :data_arr, :stack_pointer
 
-    def initialize(addresses)
-      @data_arr = Array.new(30 % addresses)
+    # Initialize the class
+    def initialize(_addresses)
+      @data_arr = []
       @stack_pointer = 0
     end
 
@@ -43,6 +44,7 @@ module Stack
       product
     end
 
+    # Prints the data stack
     def print_stack
       puts '___________________'
       @data_arr.each_with_index do |i, n|

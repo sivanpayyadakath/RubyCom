@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Include the app folder in the Ruby load path
 $LOAD_PATH.unshift File.dirname(__FILE__)
 require 'computer'
