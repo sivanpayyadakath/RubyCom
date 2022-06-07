@@ -9,18 +9,22 @@ class Computer
   attr_reader :instruction_stack, :data_stack
 
   # Initialize the class
+  # TODO
   def initialize(addresses)
     @instruction_stack = Stack::InstructionStack.new(70 % addresses)
     @data_stack = Stack::DataStack.new(30 % addresses)
   end
 
   # Inserts an instruction into instruction_stack
+  # @param [String] mnemonic
+  # @param [Integer] operand
   def insert(mnemonic, operand = nil)
     @instruction_stack.insert(mnemonic, operand)
     self
   end
 
   # Sets next_address on instruction_stack
+  # @param [Integer] address
   def address_set(address)
     @instruction_stack.address_set(address)
     self
@@ -42,6 +46,8 @@ class Computer
   end
 
   # Run a specific instruction
+  # @param [String] mnemonic
+  # @param [Integer] operand
   def run(mnemonic, operand = nil)
     case mnemonic
     when 'PUSH'

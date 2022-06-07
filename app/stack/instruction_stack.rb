@@ -19,6 +19,8 @@ module Stack
     end
 
     # Inserts into InstructionStack
+    # @param [String] mnemonic
+    # @param [Integer] operand
     def insert(mnemonic, operand)
       raise Common::Error::INSTRUCTION_INSERT_FAILED if @next_addr > 70
 
@@ -27,6 +29,7 @@ module Stack
     end
 
     # Sets next_addr to specified address
+    # @param [Integer] address
     def address_set(address)
       raise Common::Error::INSTRUCTION_SET_ADDRESS_FAILED if address > 70
 
@@ -34,6 +37,7 @@ module Stack
     end
 
     # Returns next instruction to be executed
+    # @return [Entity::Instruction]
     def next_instruction
       # Reached end of instruction stack
       raise Common::Error::INSTRUCTION_GET_NEXT_FAILED if @program_counter > 70
@@ -48,6 +52,7 @@ module Stack
     end
 
     # Sets program counter to address
+    # @param [Integer] addr
     def call(addr)
       raise Common::Error::INSTRUCTION_CALL_FAILED if addr > 70
 
@@ -56,6 +61,7 @@ module Stack
     end
 
     # Returns from a function
+    # Sets program counter to return address
     def return
       raise Common::Error::INSTRUCTION_RETURN_FAILED if @return_addr.nil?
 
