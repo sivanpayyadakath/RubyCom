@@ -17,6 +17,7 @@ class App
   end
 
   # Load some predefined instructions
+  # @param [Computer] computer
   def load_instructions(computer)
     print_tenten_begin = 50
     main_begin = 0

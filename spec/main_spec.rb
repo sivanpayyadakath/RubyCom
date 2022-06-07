@@ -4,5 +4,6 @@
 
 # RSpec.describe App do
 #   context '#start' do
+#     TODO: add tests
 #   end
 # end
