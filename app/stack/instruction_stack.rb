@@ -10,8 +10,9 @@ module Stack
 
     # TODO: use length
 
+    # Initialize the class
     def initialize(addresses)
-      @instruction_arr = Array.new(70 % addresses)
+      @instruction_arr = Array.new(addresses)
       @next_addr = 0
       @program_counter = 0
       @return_addr = nil
@@ -62,6 +63,7 @@ module Stack
       @return_addr = nil
     end
 
+    # Prints the instruction stack
     def print_stack
       puts '___________________'
       @instruction_arr.each_with_index do |i, n|

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rspec'
 require 'computer'
 require 'entity/instruction'
@@ -79,7 +81,8 @@ describe Computer do
         computer = Computer.new(100)
         ins_stack = computer.instance_variable_get(:@instruction_stack)
 
-        expect(ins_stack).to receive(:next_instruction).and_raise(Common::Error::INSTRUCTION_GET_NEXT_FAILED).exactly(1).times
+        expect(ins_stack).to receive(:next_instruction)
+          .and_raise(Common::Error::INSTRUCTION_GET_NEXT_FAILED).exactly(1).times
         expect(ins_stack).to receive(:print_stack)
 
         expect do
