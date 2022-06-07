@@ -44,6 +44,14 @@ Pointers used in Data stack
 
 **Running the program**
 
-Program can be run by using the command
+Program can be run by using the command:
 `ruby app/main.rb`
 
+Using docker:
+`docker-compose up`
+
+To run unit tests:
+`rspec`
+
+Using docker:
+`docker-compose run rubycom bundle exec rspec`
