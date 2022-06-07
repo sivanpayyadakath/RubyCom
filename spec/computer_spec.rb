@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'rspec'
+require 'spec_helper'
 require 'computer'
 require 'entity/instruction'
 
